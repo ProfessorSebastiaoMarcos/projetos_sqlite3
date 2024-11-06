@@ -16,9 +16,17 @@ resultados = cursor.fetchall()
 
 
 os.system('cls')
-for row in resultados:
-    print(row)
+# Cabeçalho
+print("-" * 40)
+print(f"{'ID':<5} {'Nome':<20} {'Idade':<5}")
+print("=" * 40)
 
+# Dados
+for row in resultados:
+    id_cliente, nome, idade = row
+    print(f"{id_cliente:<5} {nome:<20} {idade:<5}")
+
+print("-" * 40)
 conn.close()
 
 

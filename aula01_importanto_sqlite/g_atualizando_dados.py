@@ -8,11 +8,10 @@ conn = sqlite3.connect("c:/projetos_sqlite3/BD/meu_banco_de_dados.db")
 
 cursor = conn.cursor()
 
-
-cursor.execute("UPDATE clientes SET idade = ? WHERE nome = ?", (32, "João Silva"))
+# ? = Placeholder - será substituído pelos valores da tupla
+# (25,) = O execute precisa de uma tupla com um valor no segundo parâmetro
+cursor.execute("UPDATE clientes SET idade = ? WHERE nome = ?",
+               (32, "João Silva"))
 conn.commit()
 
 conn.close()
-
-
-
