@@ -1,3 +1,4 @@
+import os
 import sqlite3
 # intalar a biblioteca: pip install prettytable
 from prettytable import PrettyTable
@@ -10,6 +11,7 @@ cursor = conn.cursor()
 
 
 def listar_pedidos():
+    os.system('cls')
     cursor.execute('''
         SELECT clientes.nome, pedidos.descricao, pedidos.valor
         FROM pedidos
@@ -28,6 +30,7 @@ def listar_pedidos():
 
 
 def excluir_pedidos_por_nome(nome_cliente):
+    
     # Buscar o id do cliente pelo nome
     cursor.execute("SELECT id FROM clientes WHERE nome = ?", (nome_cliente,))
     cliente_id = cursor.fetchone()

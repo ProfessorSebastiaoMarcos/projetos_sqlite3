@@ -10,7 +10,7 @@ conn = sqlite3.connect("c:/projetos_sqlite3/BD/meu_banco_de_dados.db")
 cursor = conn.cursor()
 
 # ? = Placeholder
-# (25,) = O execute precisa de uma tupla com um valor no segundo parâmetro
+# (25,) = O execute precisa de uma tupla
 cursor.execute("SELECT * FROM clientes WHERE idade > ?", (25,)) 
 resultados = cursor.fetchall()
 

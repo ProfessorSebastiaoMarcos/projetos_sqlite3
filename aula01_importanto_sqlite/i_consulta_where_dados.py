@@ -14,7 +14,6 @@ cursor = conn.cursor()
 cursor.execute("SELECT * FROM clientes WHERE idade > ?", (25,)) 
 resultados = cursor.fetchall()
 
-
 os.system('cls')
 for row in resultados:
     print(row)

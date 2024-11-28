@@ -26,23 +26,30 @@ cursor.execute('''
 
 # Inserção de dados na tabela clientes
 dados_cliente = ("João Silva", 30)
-cursor.execute("INSERT INTO clientes (nome, idade) VALUES (?, ?)", dados_cliente)
+cursor.execute(
+    "INSERT INTO clientes (nome, idade) VALUES (?, ?)", dados_cliente)
 
 dados_varios_clientes = [
     ("Maria Souza", 25),
     ("Carlos Pereira", 35),
     ("Ana Costa", 28)
 ]
-cursor.executemany("INSERT INTO clientes (nome, idade) VALUES (?, ?)", dados_varios_clientes)
+cursor.executemany(
+    "INSERT INTO clientes \
+    (nome, idade) VALUES (?, ?)", dados_varios_clientes)
 conn.commit()
 
 # Inserção de dados na tabela pedidos associados a um cliente
 dados_pedidos = [
-    ("Compra de eletrodoméstico", 1200.50, 1),  # Associado ao cliente com id 1 (João Silva)
+    # Associado ao cliente com id 1 (João Silva)
+    ("Compra de eletrodoméstico", 1200.50, 1),
     ("Compra de móveis", 750.00, 1),
-    ("Serviço de instalação", 150.00, 2)        # Associado ao cliente com id 2 (Maria Souza)
+    # Associado ao cliente com id 2 (Maria Souza)
+    ("Serviço de instalação", 150.00, 2)
 ]
-cursor.executemany("INSERT INTO pedidos (descricao, valor, cliente_id) VALUES (?, ?, ?)", dados_pedidos)
+cursor.executemany(
+    "INSERT INTO pedidos \
+        (descricao, valor, cliente_id) VALUES (?, ?, ?)", dados_pedidos)
 conn.commit()
 
 # Fechando a conexão
