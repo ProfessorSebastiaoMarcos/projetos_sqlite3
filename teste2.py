@@ -35,3 +35,4 @@ print("O livro 'O Hobbit' está no estoque?", "O Hobbit" in estoque)
 
 # Passo 8: Exibição final
 print("Estoque final de livros:", estoque)
+# teste
